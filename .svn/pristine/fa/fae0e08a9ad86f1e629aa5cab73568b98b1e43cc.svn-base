@@ -1,0 +1,73 @@
+package project.runner;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import project.variables.ProjectVariables;
+import project.utilities.ExcelUtils;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions( plugin = {"pretty", "html:target/cucumber-html-report"}, 
+			tags={"@RegressionUI"},
+			monochrome = true,
+			features="src/test/resources/features", glue="project.steps")
+
+public class TestRunner {
+//	@BeforeClass
+//    public static void killExcel() throws Exception{           
+           /*Runtime.getRuntime().exec("taskkill /F /IM EXCEL.EXE");
+           String sDirectory = System.getProperty("user.dir");
+           String sDriverPath = sDirectory+"\\src\\test\\resources\\Data";
+           String sExcelPath = sDirectory+"\\src\\test\\resources\\Data\\Mail.xlsm";
+           ExcelUtils.SetPath(7, 2, sDriverPath, sExcelPath);   */
+		
+//		ProjectVariables.execResultList = new ArrayList<JSONObject>();
+//    }
+
+	
+//	@AfterClass
+//    public static void fn_SendMail() throws IOException{
+//       /*String sDirectory = System.getProperty("user.dir");
+//       String sDriverPath = sDirectory+"\\src\\test\\resources\\Data";
+//       String sExcelPath = sDirectory+"\\src\\test\\resources\\Data\\Mail.xlsm";
+//       Runtime.getRuntime().exec(new String[] { "wscript.exe", sDriverPath+"\\Trigger.vbs",sExcelPath});*/
+//		
+//		
+//		
+//		//Write JSON file
+//		FileWriter file = new FileWriter(System.getProperty("user.dir") + "\\ExecutionList.json", true);
+//		try {
+//			file.write("[");
+//			
+//			for (int i = 0; i < ProjectVariables.execResultList.size(); i++) {
+//				//System.out.println(ProjectVariables.execResultList.get(i).toString());
+//				file.write(ProjectVariables.execResultList.get(i).toString());
+//				if (i < (ProjectVariables.execResultList.size() - 1) ) {
+//					file.write(", ");
+//					file.write("\n");
+//				}
+//			}
+//			file.write("]");
+//			//file.write(ProjectVariables.execResultList.toString());
+//			//file.write(", ");
+//			//file.write("\n");
+//
+//		} catch (Exception e) {
+//			System.out.println("Failed due to:" + e);
+//		} finally {
+//			file.flush();
+//			file.close();
+//		}
+//    }
+//	
+//	
+}
+

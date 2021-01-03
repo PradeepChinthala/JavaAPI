@@ -1,0 +1,48 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="dj_webkit dj_chrome dj_contentbox"><head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>CPW - Login</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <script type="text/javascript" src="external/Google/charts/loader.js"></script>
+        <script type="text/javascript" src="external/jquery/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="js/dist/app.js"></script>
+
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css?636948296529317790" />
+        <link rel="stylesheet" href="mxclientsystem/mxui/ui/mxui.css?636948296529317790" />
+   
+        <link rel="stylesheet" href="https://cpd-qa.cotiviti.com/widgets/widgets.css?636948296529317790" /><link rel="stylesheet" href="styles/css/lib/lib.css?636948296529317790" />
+        <link rel="stylesheet" href="styles/css/custom/custom.css?636948296529317790" />
+
+        <!-- ICONS EXAMPLE -->
+
+        <!-- iPhone retina icon (iOS < 7) -->
+        <!-- <link href="resources/ios/icons/apple-touch-icon-precomposed-114x114.png" sizes="114x114" rel="apple-touch-icon-precomposed"> -->
+
+        <!-- STARTUP IMAGES -->
+        <!-- <link href="resources/ios/startup/apple-touch-startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" rel="apple-touch-startup-image"> -->
+
+    </head>
+    <body dir="ltr" class="profile-desktop role-anonymous">
+        <div id="content"><div class="mx-page loginPage" focus-id="1559327467230-3" focuscycle="true" style=""><div class="mx-placeholder" data-mx-placeholder="main"><div data-mx-placeholder="f4e12838-f1ad-400b-858d-6df61acaf765" class="mx-placeholder"><div class="mx-name-container2 loginContainer"><div class="mx-name-container3 loginWindow"><img class="mx-image mx-name-image1 loginLogo" src="https://cpd-qa.cotiviti.com/img/NavigationLayouts$logo_3.jpg?636948296529317790" id="mxui_widget_StaticImage_0" data-mendix-id="57_0" widgetid="mxui_widget_StaticImage_0" style="width: 300px;" /><div data-mendix-id="57_1" class="mx-name-hTMLSnippet3 mx-focus" tabindex="0" id="HTMLSnippet_widget_HTMLSnippet_0" focusindex="0" widgetid="HTMLSnippet_widget_HTMLSnippet_0" style=""><div><h1 style="padding-top:50px;"> Client Policy<br />Workbench</h1></div></div><div class="mx-name-container4 loginForm"><div class="mx-dataview mx-name-dataView1 form-horizontal" id="mxui_widget_DataView_0" data-mendix-id="57_2" focusindex="0" widgetid="mxui_widget_DataView_0" style=""><div class="mx-dataview-content" style="height: auto;"><!--mxid:57_3--></div></div><div class="mx-dataview mx-name-dataView2 form-horizontal" id="mxui_widget_DataView_1" data-mendix-id="57_4" focusindex="0" widgetid="mxui_widget_DataView_1" style=""><div class="mx-dataview-content" style="height: auto;"><div class="cotivitiloginform mx-name-cotivitiLoginForm1 display-b full-width" id="CotivitiLoginForm_widget_CotivitiLoginForm_0" data-mendix-id="57_5" focusindex="0" widgetid="CotivitiLoginForm_widget_CotivitiLoginForm_0" style="">
+    <form action="apisignin/" method="post">
+        <div class="form-group spacing-lr-0" style="display:block;"><input type="text" name="username" class="form-control username" placeholder="Username" data-dojo-attach-point="usernameNode" /></div>
+        <div class="form-group spacing-lr-0" style="display:block;"><input type="password" name="password" class="form-control password" placeholder="Password" data-dojo-attach-point="passwordNode" /></div>
+        <input type="submit" class="btn btn-default submit" value="Cotiviti Login" />
+    </form>
+</div></div></div><span class="mx-link mx-name-actionButton1" id="mxui_widget_ActionButton_0" data-mendix-id="57_6" tabindex="0" widgetid="mxui_widget_ActionButton_0" style=""> <a tabindex="-1">Log in using your Mendix account</a> </span></div></div></div></div></div></div></div>
+        <script>
+            dojoConfig = {
+                baseUrl: "mxclientsystem/dojo/",
+                cacheBust: "636948296529317790",
+                rtlRedirect: "index-rtl.html"
+            };
+        </script>
+        <script>
+            if (!document.cookie || !document.cookie.match(/(^|;)originURI=/gi))
+                document.cookie = "originURI=/login.html";
+        </script>
+        <script src="mxclientsystem/mxui/mxui.js?636948296529317790"></script>
+    
+
+<div class="mx-progress mx-progress-empty mx-progress-hidden" id="mxui_widget_Progress_0" widgetid="mxui_widget_Progress_0"><div class="mx-progress-message"></div><div class="mx-progress-indicator"></div></div><div class="mx-incubator mx-offscreen"></div></body></html>

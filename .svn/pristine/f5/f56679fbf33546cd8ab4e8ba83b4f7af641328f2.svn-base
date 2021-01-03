@@ -1,0 +1,92 @@
+package project.dao;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+//import org.json.JSONArray;
+//import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.google.gson.JsonArray;
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.response.Response;
+import com.jayway.restassured.parsing.Parser;
+//import org.apache.commons.io.output.StringBuilderWriter;
+
+//import io.restassured.RestAssured;
+//import io.restassured.http.ContentType;
+//import io.restassured.response.Response;
+//import io.restassured.parsing.Parser;
+
+import project.utilities.SeleniumUtils;
+import project.variables.ProjectVariables;
+//import static io.restassured.RestAssured.given;
+
+
+public class FilterDrawerDAO extends SeleniumUtils {
+
+	
+	public static boolean service_call_to_get_all_assigned_clients() throws ParseException {
+		String response;
+		String client;
+		ArrayList<String> clientList = new ArrayList<>();
+//		RestAssured.defaultParser = Parser.JSON;
+		
+//		List<String> clientList = new ArrayList<String>();
+//		String client;
+		
+//		response = given().headers("Content-Type", ContentType.JSON, "Accept", ContentType.JSON).body("{\"userName\": \"iht_ittest09\"}").
+//        when().post(ProjectVariables.ROOT_URI + ProjectVariables.CLIENT_TEAM_DATA_ENDPOINT).
+//        then().contentType(ContentType.JSON).extract().response();
+		response = RestAssured.given().contentType(ContentType.JSON).accept(ContentType.JSON)
+				.body("{\"userName\": \"iht_ittest09\"}").when()
+				.post(ProjectVariables.ROOT_URI + ProjectVariables.CLIENT_TEAM_DATA_ENDPOINT).asString();
+//		System.out.println(RestAssured.given().contentType(ContentType.JSON).accept(ContentType.JSON)
+//				.body("{\"userName\": \"iht_ittest09\"}").when()
+//				.post(ProjectVariables.ROOT_URI + ProjectVariables.CLIENT_TEAM_DATA_ENDPOINT).print());
+		System.out.println(response);
+		JSONParser parser = new JSONParser();
+		JSONObject jo = (JSONObject) parser.parse(response);
+		JSONArray clients = (JSONArray) jo.get("result");
+		List<String> clientNames = new ArrayList<String>();
+		/*for(int i = 1;i<=clients.size();i++)
+		{
+//			clientNames.add(clients["clientName"]);
+			System.out.println(clients.get(i).toString());
+			
+		}*/
+		JSONArray ja = clients;
+		Iterator<Map.Entry> itr1;
+		 Iterator itr2 = ja.iterator(); 
+         
+	        while (itr2.hasNext())  
+	        { 
+	            itr1 = ((Map) itr2.next()).entrySet().iterator(); 
+	            while (itr1.hasNext()) { 
+	                Map.Entry pair = itr1.next(); 
+	                System.out.println(pair.getKey() + " : " + pair.getValue()); 
+	            } 
+	        }
+		
+		
+		
+//		List<String> jsonResponse = response.jsonPath().getList("clientName");
+//        System.out.println("size: " +jsonResponse.size());
+//		 client = response.jsonPath().getString("clientName");
+//		 System.out.println(client);
+//		System.out.println(response.getStatusCode());
+		return true;
+	}
+	
+//	public static void main(String args[]){
+//		service_call_to_get_all_assigned_clients();
+//	}
+	
+
+}

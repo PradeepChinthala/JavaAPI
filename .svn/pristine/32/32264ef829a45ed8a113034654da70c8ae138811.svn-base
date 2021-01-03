@@ -1,0 +1,50 @@
+#Author: abhishek.agarwal@cotiviti.com
+@RegressionUI 
+Feature: F2587 Presentation Manager - Opportunity Deck
+#US2776 Story Description: Default view on accessing PM tool
+
+Background: 
+	Given User is logged into the PM application 
+	Then the user views the Presentation Manager Home Page
+
+Scenario Outline: 2924: validation of Presentation Manager application after "Relogin"
+	 When user selects "<Client>" from Client drop down list
+	 And user selects "<Payer Shorts>" from Payer Shorts
+	 And user selects "<LOB>" from LOB
+	 And user selects "<Product>" from Product
+	 And user filters by clicking on Apply for Payer Shorts
+	 And user selects "<Medical Policy/Topic>" from Medical Policy/Topic
+	 And user filters by clicking on Apply for Medical Policy/Topic
+	 And user logs out of the application
+	 And user does Re-login into the PM application  
+	Then user should view "<Client>" in Client drop down list
+	And user should view "<Payer Shorts>" in Payer Shorts
+	And user should view "<LOB>" in LOB
+	And user should view "<Product>" in Product
+	And user should view "<Medical Policy/Topic>" in Medical Policy/Topic
+	And user should view Reset button for Payer Shorts 
+ 	And user should view Apply button for Payer Shorts 
+ 	And user should view Reset button for Medical Policy/Topics 
+ 	And user should view Apply button for Medical Policy/Topics
+# 	And Presentation details should be displayed in "Presentations" panel as per the saved details 
+	 
+	Examples:
+	|           Client           |    Payer Shorts   |       LOB     |     Product     |  Medical Policy/Topic    |   
+	|    Dean Health Plan        |     DHPMP         |  Commercial   |   Outpatient    |    Ambulance Policy      |   
+
+	 
+	 
+#Scenario Outline: 2923 Ability to validate Default view on accessing Presentation Manager tool for the first time 
+#Given "<CPW User>" logs in to "Presenation Manager" Application for the first time 
+#Then "Select Client" dropdown should be displayed 
+#And "Client" should not be selected 
+#And "Available Oppurtunity" panel should display as "No Oppurtunity Available" 
+#And "Presentations" panel should display as "No Presenatations Available" if there are no Presenatations created 
+#
+#Examples: 
+#
+#  |CPW User|Client|
+	 
+	 
+	 
+	 

@@ -1,0 +1,95 @@
+package project.variables;
+
+import java.util.List;
+
+import org.json.simple.JSONObject;
+
+public class ProjectVariables {
+
+	public static final int WEBELEMENTS_TIME_IN_SECONDS = 20;
+	
+	public static int APP_RENDER_WAIT_TIME = 10;
+	
+	public static final int TImeout_2_Seconds = 2;
+	
+	public static final int TImeout_5_Seconds = 5;
+	
+	public static final int TImeout_6_Seconds = 6;
+	
+	public static final int TImeout_8_Seconds = 8;
+	
+	public static final int TImeout_10_Seconds = 10;
+	
+	public static final int TImeout_12_Seconds = 12;
+	
+	public static final int TImeout_15_Seconds = 15;
+	
+	public static final int TImeout_20_Seconds = 20;
+	
+	public static final int TImeout_25_Seconds = 25;
+	
+	public static final int TImeout_30_Seconds = 30;
+	
+	public static final int TImeout_40_Seconds = 40;
+
+	public static final int TImeout_1_hour = 3600;
+	
+	public static final int HIGHLIGHT_COUNT = 20;
+
+	public static final int SCROLL_BY_OFFSET = 100;
+	
+	public static final int SCROLL_BY_SMALL_OFFSET = 10;
+	
+	public static final int SCROLL_BY_HORIZONTAL_OFFSET = 1000;
+
+	public static String sSystemsUserName = System.getProperty("user.name");
+
+	public static String MP_Labels="Medical Policy,DP Dispositions Captured,Raw Production Savings,Filtered Raw Opportunity Savings,Filtered Aggressive Opportunity Savings";
+
+	public static String sTestDataFilePath = "C:\\Users\\" + sSystemsUserName + "\\Downloads\\";
+
+	public static String Filter_Savings_Xpath_Args="opp-raw-prod-sav,opp-raw-opp-sav,opp-agg-opp-sav";
+
+	public static String InsuranceTypes[] = {"Medicare","Medicaid","Commercial","Dual Eligible","BlueCard","Federal Employee Program"};
+
+	public static String ClientDecesionValues[] = {"Absence of Decision","Approve Library","Approve with Modification","No Decision","None","Reject","Suppress"};
+	
+	public static String CurrentDispositionValues[] = {"Present","Do Not Present - CPM Review","Do Not Present","Not Reviewed","Prior Approval"};
+	
+	public static String PriorDispositionValues[] = {"Present","Do Not Present - CPM Review","Do Not Present","No Disposition"};
+
+	public static String[] SavingsStatuFilteOptionsValues={"Opportunity","Production"};
+	
+	public static String sheet1="Present and DNP-CPM";
+	
+	public static String sheet2="DNP-CPM";
+	
+	public static String sheet3="Prior Approvals";
+
+	public static String AWBFilterOptions="Latest Client Decision;Prior Disposition;Savings Status";
+
+	public static String AWBWorkedOpportunityFilterOptions="Payer Short;Insurance;Product;Latest Client Decision;Current Disposition";
+
+	public static String filters="Flag,Latest Client Decision,Prior Disposition,Savings Status,payer,insurance,product";
+	
+	public static String FlagFilterOptions="All References Sources for Rule are Expert Panel,Bilateral Type Not For My Payer,Clinical Appropriateness,CMS+ Cotiviti DP,Companion,Counterpart,Cross Product across products for Cross Product Payer,Cross Product across products for Non-Cross Product Payer,Cross Product different products for Cross Product Payer,Cross Product different products for Non-Cross Product Payer,Disproportionate Savings Distribution,DP in Open Presentation,Expert Panel Ref - Primary with Other Ref Sources,Expert Panel Ref - Secondary or in Ref Details	,Hard Denial Rule for Hard Denial Payer,LCD Rule,Mother/Baby Rule for Mother/Baby Payer,Mutually Exclusive,OOS,Payer has DPs in this Topic,Payer has rules in this DP,Payer Sensitivity,Prior Auth DP,Quirky Diag Rule for Quirky Diag Payer,Real Time Payer - Mid Rule Not Real Time,Recode Logic for Deny versus Recode Payer,Rule in Specialty MP with Specialty Society Reference,Rule with no Conservative Savings defined,Test Switch for my Payer Policy Set for Mid Rule,Test Switch for RVA PPS";
+
+	public static String LatestClientDecisionFilterOptions="Absence of Decision,Approve Library,Approve with Modification,No Decision,None,Reject,Suppress";
+	
+	public static String PriorDispositionFilterOptions="Present,Do Not Present - CPM Review,Do Not Present,No Disposition";
+	
+	public static String SavingStatusFilterOptions="Opportunity,Production";
+	
+	public static String InsuranceFilterOptions="Medicare,Medicaid,Commercial,Dual Eligible,BlueCard,Federal Employee Program";
+	
+	public static String ProductFilterOptions="ICM,A,F,P,ICMO,I,O,S";
+	
+	public static String FiltersData="Approve Library,Present,Opportunity";
+
+	public static String Year;
+
+	public static String month;
+
+	public static List<JSONObject> execResultList;
+
+}

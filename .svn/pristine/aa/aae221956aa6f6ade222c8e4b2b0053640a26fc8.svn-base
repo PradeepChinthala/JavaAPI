@@ -1,0 +1,107 @@
+package project.steps;
+import java.util.concurrent.TimeUnit;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import net.thucydides.core.steps.ScenarioSteps;
+import projects.steps.definitions.FilterDrawerStepDef;
+
+public class FilterDrawerStep extends ScenarioSteps{
+	
+	private static final long serialVersionUID = 1L;
+	
+	FilterDrawerStepDef oFilterDrawerStepDef;
+	
+	@When("^user selects \"([^\"]*)\" from Client drop down list$")
+	public void user_selects_from_Client_drop_down_list(String arg1) throws Throwable {
+		oFilterDrawerStepDef.user_selects_given_value_from_Client_drop_down_list(arg1);
+	   
+	}
+
+	@Then("^user selects \"([^\"]*)\" from Payer Shorts$")
+	public void user_selects_from_Payer_Shorts(String arg1) throws Throwable {
+		oFilterDrawerStepDef.user_selects_given_value_from_Payer_Shorts(arg1);
+	   
+	}
+
+	@Then("^user selects \"([^\"]*)\" from LOB$")
+	public void user_selects_from_LOB(String arg1) throws Throwable {
+		oFilterDrawerStepDef.user_selects_given_value_from_LOB(arg1);
+	   
+	}
+
+	@Then("^user selects \"([^\"]*)\" from Product$")
+	public void user_selects_from_Product(String arg1) throws Throwable {
+		oFilterDrawerStepDef.user_selects_given_value_from_Product(arg1);
+	   
+	}
+
+	@Then("^user filters by clicking on Apply for Payer Shorts$")
+	public void user_filters_by_clicking_on_Apply_for_Payer_Shorts() throws Throwable {
+	   oFilterDrawerStepDef.user_filters_by_clicking_on_Apply_for_Payer_Shorts();
+	}
+
+	@Then("^user selects \"([^\"]*)\" from Medical Policy/Topic$")
+	public void user_selects_from_Medical_Policy_Topic(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_selects_given_value_from_Medical_Policy_Topic(arg1);
+	}
+
+	@Then("^user filters by clicking on Apply for Medical Policy/Topic$")
+	public void user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic() throws Throwable {
+	   oFilterDrawerStepDef.user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic();
+	}
+
+	@Then("^user should view \"([^\"]*)\" in Client drop down list$")
+	public void user_should_view_in_Client_drop_down_list(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_given_value_in_Client_drop_down_list(arg1);
+	}
+
+	@Then("^user should view \"([^\"]*)\" in Payer Shorts$")
+	public void user_should_view_in_Payer_Shorts(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_given_value_in_Payer_Shorts(arg1);
+	   
+	}
+
+	@Then("^user should view \"([^\"]*)\" in LOB$")
+	public void user_should_view_in_LOB(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_given_value_in_LOB(arg1);
+	}
+
+	@Then("^user should view \"([^\"]*)\" in Product$")
+	public void user_should_view_in_Product(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_given_value_in_Product(arg1);
+	}
+
+	@Then("^user should view \"([^\"]*)\" in Medical Policy/Topic$")
+	public void user_should_view_in_Medical_Policy_Topic(String arg1) throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_given_value_in_Medical_Policy_Topic(arg1);
+	   
+	}
+
+	@Then("^user should view Reset button for Payer Shorts$")
+	public void user_should_view_Reset_button_for_Payer_Shorts() throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_Reset_button_for_Payer_Shorts();
+	   
+	}
+
+	@Then("^user should view Apply button for Payer Shorts$")
+	public void user_should_view_Apply_button_for_Payer_Shorts() throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_Apply_button_for_Payer_Shorts();
+	   
+	}
+
+	@Then("^user should view Reset button for Medical Policy/Topics$")
+	public void user_should_view_Reset_button_for_Medical_Policy_Topics() throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_Reset_button_for_Medical_Policy_Topics();
+	   
+	}
+
+	@Then("^user should view Apply button for Medical Policy/Topics$")
+	public void user_should_view_Apply_button_for_Medical_Policy_Topics() throws Throwable {
+	   oFilterDrawerStepDef.user_should_view_Apply_button_for_Medical_Policy_Topics();
+	   
+	}
+	
+	
+}

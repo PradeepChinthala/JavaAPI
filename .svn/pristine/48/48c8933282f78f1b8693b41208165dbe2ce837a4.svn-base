@@ -1,0 +1,68 @@
+package project.pageobjects;
+
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.annotations.findby.How;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.WhenPageOpens;
+import project.utilities.GenericUtils;
+import project.utilities.SeleniumUtils;
+
+//@DefaultUrl("https://cpd-qa.cotiviti.com/index3.html")
+public class LoginPage extends SeleniumUtils{
+
+
+	//Objects
+	
+	@FindBy(xpath = "//input[contains(@class, 'username')]")
+	WebElementFacade txtUserName;
+	
+	@FindBy(xpath = "//input[contains(@class, 'password')]")
+	WebElementFacade txtPassword;
+	
+	@FindBy(xpath = "//input[@value='Cotiviti Login']")
+	WebElementFacade btnLogin;
+	
+	
+	@FindBy(xpath = "//span[@id='mxui_widget_LinkButton_1']")
+	WebElementFacade lnkPresentationManager;
+	
+	
+	//Possible actions on objects
+	public boolean enter_User_Name(String value){
+		txtUserName.clear();
+		txtUserName.sendKeys(value);
+		return true;
+	}
+	
+	public boolean enter_Password(String value){
+		txtPassword.clear();
+		txtPassword.sendKeys(value);
+		return true;
+	}
+	
+	public boolean click_Login_button(){
+		btnLogin.click();
+		return true;
+	}
+	
+	public boolean click_On_PresentationManager_Link(){
+		lnkPresentationManager.click();
+		Sleeper.sleepTightInSeconds(7);
+		return true;
+	}
+	
+	@WhenPageOpens	
+	public void waitUntilTitleAppears() throws Throwable {
+			getDriver().manage().window().maximize();
+		}
+	
+	public void user_does_Re_login_into_the_PM_application() {
+		switchHangleToCPW();
+		click_On_PresentationManager_Link();
+		
+	}
+}

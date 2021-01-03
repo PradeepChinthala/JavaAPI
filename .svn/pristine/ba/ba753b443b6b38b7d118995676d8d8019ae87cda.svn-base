@@ -1,0 +1,287 @@
+package projects.steps.definitions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+
+import net.serenitybdd.core.annotations.findby.By;
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.WhenPageOpens;
+import net.thucydides.core.steps.ScenarioSteps;
+import project.exceptions.ElementNotFoundException;
+import project.pageobjects.HomePage;
+import project.utilities.GenericUtils;
+import project.utilities.SeleniumUtils;
+import project.variables.ProjectVariables;
+
+//@DefaultUrl("http://10.170.32.31:4200/")
+@DefaultUrl("https://cpd-dev.cotiviti.com/")
+public class HomeStepDef extends SeleniumUtils {
+	// private static final long serialVersionUID = 1L;
+	ScenarioSteps sSteps = new ScenarioSteps();
+
+	HomePage onHomePage;
+
+	public boolean openPMApplication() {
+		open();
+		sSteps.waitFor(ProjectVariables.APP_RENDER_WAIT_TIME);
+		return true;
+	}
+
+	@WhenPageOpens
+	public void waitUntilTitleAppears() {
+		getDriver().manage().window().maximize();
+		
+	}
+
+	
+	public boolean the_user_views_the_Presentation_Manager_Home_Page() {
+		Assert.assertTrue(onHomePage.verify_Cotiviti_Logo_Is_Visible());
+		Assert.assertTrue(onHomePage.verify_Presentation_Manager_logo_is_visible());
+		return true;
+	}
+	
+	public void user_logs_out_of_the_application() {
+		onHomePage.user_logs_out_of_the_application();
+		
+	}
+
+	
+
+
+//	public boolean checkElementDisabled(String arg1) {
+//
+//		switch (arg1) {
+//		case "Apply":
+//			return !oHomePageObjects.getElementTopicApplyBtn().isCurrentlyEnabled();
+//		case "Reset":
+//			return !oHomePageObjects.getElementTopicResetBtn().isCurrentlyEnabled();
+//		default:
+//			GenericUtils.logErrorMesage("No such element found to check disabled status");
+//			return false;
+//		}
+//
+//	}
+//
+//	public boolean checkElementEnabled(String arg1) {
+//		switch (arg1) {
+//		case "APPLY":
+//			return oHomePageObjects.getElementTopicApplyBtn().isCurrentlyEnabled();
+//		case "RESET":
+//			return oHomePageObjects.getElementTopicResetBtn().isCurrentlyEnabled();
+//		default:
+//			GenericUtils.logErrorMesage("No such element found to check enabled status");
+//			return false;
+//		}
+//	}
+//
+//	@Step
+//	public boolean user_selects_value_from(String arg1, String arg2) throws InterruptedException {
+//		System.out.println("test" + arg2);
+//		switch (arg2) {
+//		case "Client drop down list":
+//			oHomePageObjects.getElementClientDropDownArrow().click();
+//			oHomePageObjects.getElementClient(arg1).click();
+//			return true;
+//
+//		case "Payer Shorts":
+//			if (!arg1.equals("All")) {
+//				if (oHomePageObjects.getElementSelectAllPayer().getAttribute("aria-checked").toString()
+//						.equals("true")) {
+//					oHomePageObjects.getElementSelectAllPayer().click();
+//				}
+//			}
+//			if (oHomePageObjects.getElementSelectPayer(arg1).getAttribute("class").equals("")) {
+////				oHomePageObjects.getElementSelectPayer(arg1).click();
+//				oHomePageObjects.getElementCheckboxTemp(arg1).click();
+//
+//			}
+//			return true;
+//
+//		case "LOB":
+//			if (!arg1.equals("All")) {
+//				if (oHomePageObjects.getElementSelectAllLOB().getAttribute("aria-checked").toString().equals("true")) {
+//					oHomePageObjects.getElementSelectAllLOB().click();
+//				}
+//				if (oHomePageObjects.getElementSelectLOB(arg1).getAttribute("class").equals("")){
+////					oHomePageObjects.getElementSelectLOB(arg1).click();
+//					System.out.println("inside");
+//					oHomePageObjects.getElementCheckboxTemp(arg1).click();}
+//				System.out.println("outside");
+//
+//			}
+//			return true;
+//		case "Product":
+//			if (!arg1.equals("All")) {
+//				if (oHomePageObjects.getElementSelectAllProduct().getAttribute("aria-checked").toString()
+//						.equals("true")) {
+//					oHomePageObjects.getElementSelectAllProduct().click();
+//				}
+//				if (oHomePageObjects.getElementSelectProduct(arg1).getAttribute("class").equals("")){
+////					oHomePageObjects.getElementSelectProduct(arg1).click();
+//					oHomePageObjects.getElementCheckboxTemp(arg1).click();}
+//
+//			}
+//			return true;
+//		case "Medical Policy/Topic":
+//			if (!arg1.equals("All")) {
+//				if (!oHomePageObjects.getElementAllPolicy().getAttribute("aria-checked").toString().equals("false")) {
+//					oHomePageObjects.getElementAllPolicy().click();
+//				}
+//				if (oHomePageObjects.getElementSelectPolicy(arg1).getAttribute("class").equals(""))
+//					oHomePageObjects.getElementClickPolicy(arg1).click();
+//			}
+//			return true;
+//		default:
+//
+//		}
+//		return false;
+//	}
+//
+//	@Step
+//	public void clickButton(String arg1, String arg2) {
+//
+//		switch (arg2) {
+//		case "Payer Shorts":
+//			if (arg1.equals("Apply")) {
+//				oHomePageObjects.getElementPayerShortApplyBtn().waitUntilEnabled();
+//				if (oHomePageObjects.getElementPayerShortApplyBtn().isEnabled()) {
+//					System.out.println("clickingapply");
+//					oHomePageObjects.getElementPayerShortApplyBtn().click();
+//				} else
+//					GenericUtils.logErrorMesage("Element " + arg1 + "is currently disabled, click not successful");
+//			} else if (arg1.equals("Reset")) {
+//				oHomePageObjects.getElementPayerShortResetBtn().waitUntilEnabled();
+//				if (oHomePageObjects.getElementPayerShortResetBtn().isEnabled())
+//					oHomePageObjects.getElementPayerShortResetBtn().click();
+//				else
+//					GenericUtils.logErrorMesage("Element " + arg1 + "is currently disabled, click not successful");
+//				
+//			}
+//			break;
+//		case "Medical Policy/Topic":
+//			if (arg1.equals("Apply")) {
+//				oHomePageObjects.getElementTopicApplyBtn().waitUntilEnabled();
+//				if (oHomePageObjects.getElementTopicApplyBtn().isEnabled())
+//					oHomePageObjects.getElementTopicApplyBtn().click();
+//				else
+//					GenericUtils.logErrorMesage("Element " + arg1 + "is currently disabled, click not successful");
+//			} else if (arg1.equals("Reset")) {
+//				oHomePageObjects.getElementTopicResetBtn().waitUntilEnabled();
+//				if (oHomePageObjects.getElementTopicResetBtn().isEnabled()){
+//					oHomePageObjects.getElementTopicResetBtn().click();
+//					waitFor(oHomePageObjects.getElementDP());
+//					oHomePageObjects.getElementDP().click();
+//				}
+//				else
+//					GenericUtils.logErrorMesage("Element " + arg1 + "is currently disabled, click not successful");
+//			}
+//			break;
+//		}
+//
+//	}
+//
+//	public void refreshPage() {
+//
+//		refreshPage();
+//	}
+//
+//	public void user_makes_note_of_what_is_selected() {
+//
+//		capatureCookie();
+//	}
+//	
+//	@Step
+//
+//	public boolean user_checks_element_is_selected(String arg1, String arg2) {
+//		
+//	switch (arg2) {
+//
+//	case "Client drop down list":
+//		if(oHomePageObjects.getElementClientSelected().getText().contains(arg1)){
+//			System.out.println("true" +arg1);
+//			return true;
+//		}
+//		return false;
+//	case "Payer Shorts":
+//			if (!oHomePageObjects.getElementSelectPayer(arg1).getAttribute("class").equals("")) {
+//				System.out.println("true" +arg1);
+//
+//				return true;
+//		}
+//			System.out.println("false" +arg1);
+//
+//		return false;
+//
+//	case "LOB":
+//		
+//			if (!oHomePageObjects.getElementSelectLOB(arg1).getAttribute("class").equals("")){
+//				System.out.println("true" +arg1);
+//				return true;
+//		}
+//			System.out.println("false" +arg1);
+//
+//		return false;
+//	case "Product":
+//			if (!oHomePageObjects.getElementSelectProduct(arg1).getAttribute("class").equals("")){
+//				System.out.println("true" +arg1);
+//
+//			return true;
+//		}
+//			System.out.println("false" +arg1);
+//
+//		return false;
+//	case "Medical Policy/Topic":
+//			if (!oHomePageObjects.getElementSelectPolicy(arg1).getAttribute("class").equals("")){
+//				System.out.println("true" +arg1);
+//				return true;
+//	}
+//			System.out.println("false" +arg1);
+//
+//		return false;
+//	default:
+//		return false;
+//
+//	
+//	}
+//
+//
+//	}
+//
+//	public void user_checks_element_is_visible(String arg1, String arg2) {
+//		switch (arg2) {
+//		case "Payer Shorts":
+//			if (arg1.equals("Apply")) {
+//					oHomePageObjects.getElementPayerShortApplyBtn().isVisible();
+//					System.out.println("true" +arg1);
+//			} else if (arg1.equals("Reset")) {
+//					oHomePageObjects.getElementPayerShortResetBtn().isVisible();
+//					System.out.println("true" +arg1);
+//
+//			}
+//			break;
+//		case "Medical Policy/Topic":
+//			if (arg1.equals("Apply")) {
+//					oHomePageObjects.getElementTopicApplyBtn().click();
+//					System.out.println("true" +arg1);
+//
+//			} else if (arg1.equals("Reset")) {
+//					oHomePageObjects.getElementTopicResetBtn().click();
+//					System.out.println("true" +arg1);
+//
+//				}
+//			}
+//			
+//		}
+//
+//	public void user_logs_out() {
+//
+//		getDriver().quit();
+//	
+//	}
+//
+	
+	}
+

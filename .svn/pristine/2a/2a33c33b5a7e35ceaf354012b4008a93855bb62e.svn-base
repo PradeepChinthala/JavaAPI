@@ -1,0 +1,96 @@
+package projects.steps.definitions;
+
+import project.pageobjects.FilterDrawer;
+import project.pageobjects.HomePage;
+import project.utilities.SeleniumUtils;
+
+public class FilterDrawerStepDef extends SeleniumUtils {
+
+	FilterDrawer onFilterDrawer;
+	HomePage onHomePage;
+
+	public void user_selects_given_value_from_Client_drop_down_list(String arg1) throws Throwable {
+		onFilterDrawer.user_selects_given_value_from_Client_drop_down_list(arg1);
+
+	}
+
+	public void user_selects_given_value_from_Payer_Shorts(String arg1) {
+		onFilterDrawer.user_unchecks_selectAllPayers();
+		onFilterDrawer.user_selects_given_value_from_Payer_Shorts(arg1);
+
+	}
+
+	public void user_selects_given_value_from_LOB(String arg1) {
+		onFilterDrawer.user_unchecks_selectAllLOB();
+		onFilterDrawer.user_selects_given_value_from_LOB(arg1);
+
+	}
+
+	public void user_selects_given_value_from_Product(String arg1) {
+		onFilterDrawer.user_unchecks_selectAllProduct();
+		onFilterDrawer.user_selects_given_value_from_Product(arg1);
+
+	}
+
+	public void user_filters_by_clicking_on_Apply_for_Payer_Shorts() {
+		onFilterDrawer.user_filters_by_clicking_on_Apply_for_Payer_Shorts();
+
+	}
+
+	public void user_selects_given_value_from_Medical_Policy_Topic(String arg1) {
+		onFilterDrawer.user_unchecks_selectAllPolicies();
+		onFilterDrawer.user_selects_given_value_from_Medical_Policy_Topic(arg1);
+
+	}
+
+	public void user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic() {
+		onFilterDrawer.user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic();
+
+	}
+
+	public void user_should_view_given_value_in_Client_drop_down_list(String arg1) {
+		 onFilterDrawer.user_should_view_given_value_selected_in_Client_drop_down_list(arg1);
+
+	}
+
+	public void user_should_view_given_value_in_Payer_Shorts(String arg1) {
+		onFilterDrawer.user_should_view_given_value_selected_in_Payer_Shorts(arg1);
+
+	}
+
+	public void user_should_view_given_value_in_LOB(String arg1) {
+		onFilterDrawer.user_should_view_given_value_selected_in_LOB(arg1);
+
+	}
+
+	public void user_should_view_given_value_in_Product(String arg1) {
+		 onFilterDrawer.user_should_view_given_value_selected_in_Product(arg1);
+
+	}
+
+	public void user_should_view_given_value_in_Medical_Policy_Topic(String arg1) {
+		 onFilterDrawer.user_should_view_given_value_selected_in_Medical_Policy_Topic();
+
+	}
+
+	public void user_should_view_Reset_button_for_Payer_Shorts() {
+		 onFilterDrawer.user_should_view_Reset_button_for_Payer_Shorts();
+
+	}
+
+	public void user_should_view_Apply_button_for_Payer_Shorts() {
+		 onFilterDrawer.user_should_view_Apply_button_for_Payer_Shorts();
+
+	}
+
+	public void user_should_view_Reset_button_for_Medical_Policy_Topics() {
+		 onFilterDrawer.user_should_view_Reset_button_for_Medical_Policy_Topics();
+
+	}
+
+	public void user_should_view_Apply_button_for_Medical_Policy_Topics() {
+		 onFilterDrawer.user_should_view_Apply_button_for_Medical_Policy_Topics();
+
+	}
+
+}

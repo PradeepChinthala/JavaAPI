@@ -1,0 +1,325 @@
+package project.utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Properties;
+import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.json.simple.JSONObject;
+
+import project.variables.ProjectVariables;
+
+
+public class GenericUtils {
+	
+	static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GenericUtils.class);
+	
+	private static GenericUtils instance = null;
+	private GenericUtils() {
+	      // GenericUtils only to defeat instantiation.
+	}
+
+	/**
+	 * @return WebControlUtils instance
+	 */
+	public static GenericUtils getInstance() {
+		if(instance == null) {
+	         instance = new GenericUtils();
+	    }
+	      return instance;
+	}
+	
+
+	//#######################  GENERIC METHODS ###################################################################
+	
+	
+	// ####################################################################################################
+	
+	public static String getDateGivenFormat(){
+		//String element = DA_PROJ_OR.LAST_SEARCH_TIME;
+		String sExpectedTime = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+		String[] words=sExpectedTime.split("\\s");
+    	System.out.println("System Date-->:- "+words[0]);
+    			
+	    	String sExpectedDate = words[0];
+	    	
+	    		    	return sExpectedDate;
+	}
+	
+	public static String getDateGivenFormat(String format){
+		//String element = DA_PROJ_OR.LAST_SEARCH_TIME;
+		String sExpectedTime = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
+		String[] words=sExpectedTime.split("\\s");
+    	System.out.println("System Date-->:- "+words[0]);
+    			
+	    	String sExpectedDate = words[0];
+	    	
+	    		    	return sExpectedDate;
+	}
+	
+	
+	// ####################################################################################################
+	
+	public static int generateRandomNumberforGivenRange(int range){
+		Random rand = new Random(); 
+		int value = rand.nextInt(range); 
+		return value;
+	}
+	
+	// ####################################################################################################
+	
+	public static int GetRandomNumber() {
+	    Random r = new Random( System.currentTimeMillis() );
+	    return ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+	}
+	
+	// ####################################################################################################
+	
+	public static String decode(String value) throws Exception {
+		byte[] decodedValue = null;
+		try{
+	     decodedValue = Base64.getDecoder().decode(value);	     
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return new String(decodedValue, StandardCharsets.UTF_8);
+	  }
+	
+	// ####################################################################################################
+	
+	public static void  logMessage(String  message){
+		logger.info(message);
+	}
+	
+	public static void logErrorMesage(String message) {
+		logger.error(message);
+	}
+	
+	// ####################################################################################################
+	
+	public boolean CompareLists(List<String> a, List<String> b) {
+		
+		Collections.sort(a);
+		Collections.sort(b);
+
+		if (a.size() != b.size()) {
+			return false;
+		}
+		
+		for (int i = 0; i < a.size(); i++) {
+			if (!a.get(i).equals(b.get(i))) {
+				return false;
+			}
+		}
+		
+		return true;
+
+	}
+	
+	public static void defaultWait(long i) {
+		try {
+			
+			Thread.sleep(TimeUnit.SECONDS.toMillis(i));
+			GenericUtils.logMessage("Waited for " + i + " seconds");
+			
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	
+	// ####################################################################################################		
+	
+	
+	public static String ChangeDateFormat(String Sdate) throws ParseException{
+		SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+		Date Nd = sdf.parse(Sdate);
+		String temp = sdf.format(Nd);
+		return temp;
+		}
+	
+
+	// ####################################################################################################
+	
+	public void gfnWritedatatoPropertyfile(String sKey,String sValue,String sFile) throws IOException{
+
+		try{			
+			File configFile = new File(sFile);		 
+			FileInputStream in = new FileInputStream(configFile);
+			Properties props = new Properties();
+			props.load(in);
+			in.close();
+	
+			FileOutputStream out = new FileOutputStream(configFile);
+			props.setProperty(sKey, sValue);	
+			props.store(out, null);
+			out.close();
+		}
+		
+		catch(Exception e){	
+			System.err.println(e); 
+					
+		}	
+		
+	}
+	
+	// ####################################################################################################
+	
+	public String gfnReadDataFromPropertyfile(String sKey,String sFile) throws IOException{
+		
+		String value = null;
+		
+		try{			
+			File file = new File(sFile);		
+			FileInputStream fileInput;
+			fileInput = new FileInputStream(file);	
+			Properties prop = new Properties();
+			prop.load(fileInput);
+			value = prop.getProperty(sKey);
+			System.out.println(prop.getProperty(sKey));
+		}
+		
+		catch(Exception e){	
+			System.err.println(e); 
+					
+		}	
+		return value;
+
+	}
+	
+	// ####################################################################################################
+	
+	
+	public static File getLatestFilefromDir(String dirPath){
+	    File dir = new File(dirPath);
+	    File[] files = dir.listFiles();
+	    if (files == null || files.length == 0) {
+	        return null;
+	    }
+	
+	    File lastModifiedFile = files[0];
+	    for (int i = 1; i < files.length; i++) {
+	       if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+	           lastModifiedFile = files[i];
+	       }
+	    }
+	    return lastModifiedFile;
+	}
+
+	public static String trimQuotedString(String strToBeExtracted) {
+		String bareStr = null;
+		Pattern p = Pattern.compile("\"([^\"]*)\"");
+		Matcher m = p.matcher(strToBeExtracted);
+		while (m.find()) {
+			bareStr = m.group(1);			
+		}
+		
+		Pattern p1 = Pattern.compile("\\[\"([^\"]*)\"\\]");
+		Matcher m1 = p1.matcher(bareStr);
+		while (m1.find()) {
+			bareStr = m1.group(1);
+		}
+		
+		Pattern p2 = Pattern.compile("\\[\"([^\"]*)\"");
+		Matcher m2 = p2.matcher(bareStr);
+		while (m2.find()) {
+			bareStr = m2.group(1);
+		}
+		
+		Pattern p3 = Pattern.compile("\"([^\"]*)\"\\]");
+		Matcher m3 = p3.matcher(bareStr);
+		while (m3.find()) {
+			bareStr = m3.group(1);
+		}
+		//System.out.println(bareStr);
+		return bareStr;
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+    public static void SetDataAsJsonFile(String sTagName,String sFeaturename , String sTcName, String sTcStatus,String sDate,String sReasonCode,String sReason) throws Exception {
+           //First Employee
+           
+           JSONObject ExecutionDetails=new JSONObject() ;
+           
+           ExecutionDetails.put("Tag Name", sTagName);
+           ExecutionDetails.put("Feature Name", sFeaturename);
+           ExecutionDetails.put("TC Name", sTcName);
+           ExecutionDetails.put("TC Status", sTcStatus);
+           ExecutionDetails.put("Execution Time",sDate);
+           ExecutionDetails.put("Reason Code", sReasonCode);
+           ExecutionDetails.put("Failure Reason", sReason);
+           
+           ProjectVariables.execResultList.add(ExecutionDetails);
+           
+           //Write JSON file
+           FileWriter file = new FileWriter(System.getProperty("user.dir")+"\\Execution.json",true);
+           try {               
+               file.write(ExecutionDetails.toString());
+               file.write("\n");     
+               //for clearing json file
+              //ExecutionDetails.clear();
+     }catch(Exception e){
+          System.out.println("Failed due to:"+e);              
+     }finally{
+           file.flush();
+                 file.close();
+     }
+           
+     }
+
+	
+	public static List<List<String>> getUniqueValues(List<List<String>> queryValues) {
+		List<List<String>> uniqueElemList = new ArrayList<List<String>>();
+		Set<List<String>> uniqueSet = new HashSet<List<String>>();
+		List<String> singleRec = new ArrayList<String>();
+		
+		for (int j = 0; j < queryValues.size(); j++) {
+			GenericUtils.logMessage(queryValues.get(j).toString());
+		}
+		
+		for (int i = 0; i < queryValues.size(); i++) {
+			singleRec = queryValues.get(i);
+			if (!uniqueSet.contains(singleRec)) {
+				System.out.println(singleRec);
+				uniqueSet.add(singleRec);
+			}
+		}
+		
+		uniqueElemList = new ArrayList<List<String>>(uniqueSet);
+		
+		return uniqueElemList;
+	}
+	
+	public static List<String> getUniqueListValues(List<String> queryValues) {
+		List<String> uniqueElemList = new ArrayList<String>();
+		Set<String> uniqueSet = new HashSet<String>();
+		
+		for (String recdValue : queryValues) {
+			uniqueSet.add(recdValue);
+		}
+		
+		uniqueElemList = new ArrayList<String>(uniqueSet);
+		
+		return uniqueElemList;
+	}
+ 
+
+}

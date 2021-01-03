@@ -1,0 +1,78 @@
+package projects.steps.definitions;
+
+import net.serenitybdd.core.annotations.findby.How;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.WhenPageOpens;
+import net.thucydides.core.steps.ScenarioSteps;
+import project.exceptions.ElementNotFoundException;
+import project.pageobjects.HomePageObjects;
+import project.utilities.GenericUtils;
+import project.utilities.SeleniumUtils;
+import project.variables.ProjectVariables;
+
+@DefaultUrl("http://10.170.32.31:4200/")
+public class HomePageStepDef extends SeleniumUtils{
+//	private static final long serialVersionUID = 1L;
+	ScenarioSteps sSteps= new ScenarioSteps(); 
+	
+	HomePageObjects oHomePageObjects;
+
+	@Step
+	public boolean openPMApplication(){
+		open();
+		sSteps.waitFor(ProjectVariables.APP_RENDER_WAIT_TIME);
+		return true;
+	}
+	
+	@WhenPageOpens
+	public void waitUntilTitleAppears() {
+		try {
+			getDriver().manage().window().maximize();
+			elementShouldBeVisible(getElement(How.XPATH.toString(), oHomePageObjects.COTIVITI_LOGO, ProjectVariables.TImeout_5_Seconds));
+			GenericUtils.logMessage("Cotiviti Logo is visible..");
+		} catch (ElementNotFoundException e) {
+			new ElementNotFoundException("Cotiviti Logo not found...");
+			GenericUtils.logErrorMesage("Cotiviti Logo not found...");
+		}
+	}
+
+	@Step	
+	public boolean verifyHomePageElementExists(String arg1) throws ElementNotFoundException {
+		boolean flag = false;
+		switch (arg1) {
+			case "Presentation Manager label":
+				isElementPresent(getElement("XPATH",oHomePageObjects.PRESENTATION_MANAGER_LABEL), arg1);
+//				highlightElement(element);
+				flag = true;
+				break;
+			case "Client drop down list to select from":
+				break;
+			case "Filter Panel image":
+					WebElementFacade element = getElement("XPATH",oHomePageObjects.FILTER_PANEL_IMAGE);
+					waitForPresenceOfElement(element,2);
+					elementShouldBeVisible(element);	
+					highlightElement(element);
+					flag = true;
+					break;
+			case "Cotiviti logo":
+
+				break;
+			case "Available Oppurtunities deck":
+
+				break;
+			case "Presentations container":
+				break;
+			default:
+				GenericUtils.logErrorMesage("No such element found on Home Page");
+				break;
+			}
+			return flag;
+		}
+		
+	}
+	
+	
+	
+	

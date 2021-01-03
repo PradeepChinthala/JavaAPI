@@ -1,0 +1,507 @@
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("F2587.feature");
+formatter.feature({
+  "comments": [
+    {
+      "line": 1,
+      "value": "#Author: abhishek.agarwal@cotiviti.com"
+    }
+  ],
+  "line": 3,
+  "name": "F2587 Presentation Manager - Opportunity Deck",
+  "description": "",
+  "id": "f2587-presentation-manager---opportunity-deck",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 2,
+      "name": "@RegressionUI"
+    }
+  ]
+});
+formatter.scenarioOutline({
+  "line": 10,
+  "name": "2924: validation of Presentation Manager application after \"Relogin\"",
+  "description": "",
+  "id": "f2587-presentation-manager---opportunity-deck;2924:-validation-of-presentation-manager-application-after-\"relogin\"",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 11,
+  "name": "user selects \"\u003cClient\u003e\" from Client drop down list",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "user selects \"\u003cPayer Shorts\u003e\" from Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 13,
+  "name": "user selects \"\u003cLOB\u003e\" from LOB",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 14,
+  "name": "user selects \"\u003cProduct\u003e\" from Product",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 15,
+  "name": "user filters by clicking on Apply for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 16,
+  "name": "user selects \"\u003cMedical Policy/Topic\u003e\" from Medical Policy/Topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "user filters by clicking on Apply for Medical Policy/Topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "user logs out of the application",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 19,
+  "name": "user does Re-login into the PM application",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 20,
+  "name": "user should view \"\u003cClient\u003e\" in Client drop down list",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 21,
+  "name": "user should view \"\u003cPayer Shorts\u003e\" in Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "user should view \"\u003cLOB\u003e\" in LOB",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 23,
+  "name": "user should view \"\u003cProduct\u003e\" in Product",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "user should view \"\u003cMedical Policy/Topic\u003e\" in Medical Policy/Topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 25,
+  "name": "user should view Reset button for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 26,
+  "name": "user should view Apply button for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 27,
+  "name": "user should view Reset button for Medical Policy/Topics",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 28,
+  "name": "user should view Apply button for Medical Policy/Topics",
+  "keyword": "And "
+});
+formatter.examples({
+  "comments": [
+    {
+      "line": 29,
+      "value": "# \tAnd Presentation details should be displayed in \"Presentations\" panel as per the saved details"
+    }
+  ],
+  "line": 31,
+  "name": "",
+  "description": "",
+  "id": "f2587-presentation-manager---opportunity-deck;2924:-validation-of-presentation-manager-application-after-\"relogin\";",
+  "rows": [
+    {
+      "cells": [
+        "Client",
+        "Payer Shorts",
+        "LOB",
+        "Product",
+        "Medical Policy/Topic"
+      ],
+      "line": 32,
+      "id": "f2587-presentation-manager---opportunity-deck;2924:-validation-of-presentation-manager-application-after-\"relogin\";;1"
+    },
+    {
+      "cells": [
+        "Dean Health Plan",
+        "DHPMP",
+        "Commercial",
+        "Outpatient",
+        "Ambulance Policy"
+      ],
+      "line": 33,
+      "id": "f2587-presentation-manager---opportunity-deck;2924:-validation-of-presentation-manager-application-after-\"relogin\";;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.background({
+  "comments": [
+    {
+      "line": 4,
+      "value": "#US2776 Story Description: Default view on accessing PM tool"
+    }
+  ],
+  "line": 6,
+  "name": "",
+  "description": "",
+  "type": "background",
+  "keyword": "Background"
+});
+formatter.step({
+  "line": 7,
+  "name": "User is logged into the PM application",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 8,
+  "name": "the user views the Presentation Manager Home Page",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginSteps.user_is_logged_into_the_PM_application()"
+});
+formatter.result({
+  "duration": 69200084500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HomePageSteps.the_user_views_the_Presentation_Manager_Home_Page()"
+});
+formatter.result({
+  "duration": 1187400500,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 33,
+  "name": "2924: validation of Presentation Manager application after \"Relogin\"",
+  "description": "",
+  "id": "f2587-presentation-manager---opportunity-deck;2924:-validation-of-presentation-manager-application-after-\"relogin\";;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 2,
+      "name": "@RegressionUI"
+    }
+  ]
+});
+formatter.step({
+  "line": 11,
+  "name": "user selects \"Dean Health Plan\" from Client drop down list",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "user selects \"DHPMP\" from Payer Shorts",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 13,
+  "name": "user selects \"Commercial\" from LOB",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 14,
+  "name": "user selects \"Outpatient\" from Product",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 15,
+  "name": "user filters by clicking on Apply for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 16,
+  "name": "user selects \"Ambulance Policy\" from Medical Policy/Topic",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "user filters by clicking on Apply for Medical Policy/Topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "user logs out of the application",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 19,
+  "name": "user does Re-login into the PM application",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 20,
+  "name": "user should view \"Dean Health Plan\" in Client drop down list",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 21,
+  "name": "user should view \"DHPMP\" in Payer Shorts",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "user should view \"Commercial\" in LOB",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 23,
+  "name": "user should view \"Outpatient\" in Product",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "user should view \"Ambulance Policy\" in Medical Policy/Topic",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 25,
+  "name": "user should view Reset button for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 26,
+  "name": "user should view Apply button for Payer Shorts",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 27,
+  "name": "user should view Reset button for Medical Policy/Topics",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 28,
+  "name": "user should view Apply button for Medical Policy/Topics",
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Dean Health Plan",
+      "offset": 14
+    }
+  ],
+  "location": "FilterDrawerStep.user_selects_from_Client_drop_down_list(String)"
+});
+formatter.result({
+  "duration": 380386600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "DHPMP",
+      "offset": 14
+    }
+  ],
+  "location": "FilterDrawerStep.user_selects_from_Payer_Shorts(String)"
+});
+formatter.result({
+  "duration": 589334000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Commercial",
+      "offset": 14
+    }
+  ],
+  "location": "FilterDrawerStep.user_selects_from_LOB(String)"
+});
+formatter.result({
+  "duration": 393409201,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Outpatient",
+      "offset": 14
+    }
+  ],
+  "location": "FilterDrawerStep.user_selects_from_Product(String)"
+});
+formatter.result({
+  "duration": 373174499,
+  "status": "passed"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_filters_by_clicking_on_Apply_for_Payer_Shorts()"
+});
+formatter.result({
+  "duration": 145160300,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Ambulance Policy",
+      "offset": 14
+    }
+  ],
+  "location": "FilterDrawerStep.user_selects_from_Medical_Policy_Topic(String)"
+});
+formatter.result({
+  "duration": 873785200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic()"
+});
+formatter.result({
+  "duration": 166840100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HomePageSteps.user_logs_out_of_the_application()"
+});
+formatter.result({
+  "duration": 93704100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginSteps.user_does_Re_login_into_the_PM_application()"
+});
+formatter.result({
+  "duration": 7492207300,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Dean Health Plan",
+      "offset": 18
+    }
+  ],
+  "location": "FilterDrawerStep.user_should_view_in_Client_drop_down_list(String)"
+});
+formatter.result({
+  "duration": 157699,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "DHPMP",
+      "offset": 18
+    }
+  ],
+  "location": "FilterDrawerStep.user_should_view_in_Payer_Shorts(String)"
+});
+formatter.result({
+  "duration": 273513900,
+  "error_message": "org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document\n  (Session info: chrome\u003d73.0.3683.86)\n  (Driver info: chromedriver\u003d73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform\u003dWindows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)\nCommand duration or timeout: 16 milliseconds\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html\nBuild info: version: \u00272.53.1\u0027, revision: \u0027a36b8b1cd5757287168e54b817830adce9b0158d\u0027, time: \u00272016-06-30 19:26:09\u0027\nSystem info: host: \u0027dev-xd093\u0027, ip: \u002710.130.0.58\u0027, os.name: \u0027Windows 7\u0027, os.arch: \u0027amd64\u0027, os.version: \u00276.1\u0027, java.version: \u00271.8.0_25\u0027\nDriver info: org.openqa.selenium.remote.RemoteWebDriver\nCapabilities [{mobileEmulationEnabled\u003dfalse, timeouts\u003d{implicit\u003d0, pageLoad\u003d300000, script\u003d30000}, hasTouchScreen\u003dfalse, platform\u003dXP, acceptSslCerts\u003dfalse, goog:chromeOptions\u003d{debuggerAddress\u003dlocalhost:49908}, acceptInsecureCerts\u003dfalse, webStorageEnabled\u003dtrue, browserName\u003dchrome, takesScreenshot\u003dtrue, javascriptEnabled\u003dtrue, setWindowRect\u003dtrue, unexpectedAlertBehaviour\u003dignore, applicationCacheEnabled\u003dfalse, rotatable\u003dfalse, networkConnectionEnabled\u003dfalse, chrome\u003d{chromedriverVersion\u003d73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72), userDataDir\u003dC:\\Users\\ABHISH~1.AGA\\AppData\\Local\\Temp\\scoped_dir9292_20593}, takesHeapSnapshot\u003dtrue, pageLoadStrategy\u003dnormal, strictFileInteractability\u003dfalse, databaseEnabled\u003dfalse, handlesAlerts\u003dtrue, version\u003d73.0.3683.86, browserConnectionEnabled\u003dfalse, proxy\u003d{}, nativeEvents\u003dtrue, locationContextEnabled\u003dtrue, cssSelectorsEnabled\u003dtrue}]\nSession ID: fb1cebdcf66f76b84898f25eb105f20a\n*** Element info: {Using\u003dxpath, value\u003d//parent::div}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:408)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:198)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:295)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:361)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:194)\r\n\tat net.serenitybdd.core.pages.WebElementFacadeImpl.findBy(WebElementFacadeImpl.java:198)\r\n\tat project.pageobjects.FilterDrawer.user_should_view_given_value_selected_in_Payer_Shorts(FilterDrawer.java:184)\r\n\tat projects.steps.definitions.FilterDrawerStepDef.user_should_view_given_value_in_Payer_Shorts(FilterDrawerStepDef.java:57)\r\n\tat project.steps.FilterDrawerStep.user_should_view_in_Payer_Shorts(FilterDrawerStep.java:62)\r\n\tat ✽.And user should view \"DHPMP\" in Payer Shorts(F2587.feature:21)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Commercial",
+      "offset": 18
+    }
+  ],
+  "location": "FilterDrawerStep.user_should_view_in_LOB(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Outpatient",
+      "offset": 18
+    }
+  ],
+  "location": "FilterDrawerStep.user_should_view_in_Product(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Ambulance Policy",
+      "offset": 18
+    }
+  ],
+  "location": "FilterDrawerStep.user_should_view_in_Medical_Policy_Topic(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_should_view_Reset_button_for_Payer_Shorts()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_should_view_Apply_button_for_Payer_Shorts()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_should_view_Reset_button_for_Medical_Policy_Topics()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "FilterDrawerStep.user_should_view_Apply_button_for_Medical_Policy_Topics()"
+});
+formatter.result({
+  "status": "skipped"
+});
+});

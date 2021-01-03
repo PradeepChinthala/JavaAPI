@@ -1,0 +1,6 @@
+project\steps\FilterPanelSteps.class
+project\pageobjects\HomePageObjects.class
+project\steps\HomePageSteps.class
+project\runner\TestRunner.class
+project\steps\AvailableOppurtunitiesSteps.class
+projects\steps\definitions\HomePageStepDef.class

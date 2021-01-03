@@ -1,0 +1,17 @@
+#Author: abhishek.agarwal@cotiviti.com
+@WIP_pending_userid
+Feature: F2587 Presentation Manager - Opportunity Deck
+#US2776 Story Description: Default view on accessing PM tool
+
+Background: 
+Given CPW User logs in to Presenation Manager Application for the first time	
+
+Scenario Outline: 2923 Ability to validate Default view on accessing Presentation Manager tool for the first time 
+Then user should view "<Client>" in Client drop down list
+And  user should view "<Available Oppurtunity>" in Available Oppurtunity panel  
+And  user should view "<Presentation Panel>" in Presentation Panel
+ 
+ 
+ Examples:
+ |           Client           |     Available Oppurtunity    |  Presentation Panel  |
+ |     Select Client          |   No Oppurtunity Availalble   |  No Oppurtunity Availalble  |

@@ -1,0 +1,30 @@
+webdriver.driver=chrome
+serenity.project.name = Presentation Manager
+
+serenity.use.unique.browser = false
+restart.browser.each.scenario=false
+#serenity.restart.browser.for.each=SCENARIO
+
+serenity.browser.height = 3000
+serenity.browser.width = 3000
+serenity.dry.run=false
+security.enable_java=true
+
+
+
+# How long does Serenity wait for elements that are not present on the screen to load
+webdriver.timeouts.implicitlywait =8000
+webdriver.wait.for.timeout=10000
+serenity.take.screenshots=FOR_FAILURES
+chrome.switches=--disable-extensions
+chrome.experimental_options.useAutomationExtension=false
+webdriver.chrome.driver=BrowserDrivers//chromeDriver_V73//chromedriver.exe
+#webdriver.base.url=http://10.170.32.31:4200/
+webdriver.base.url=https://cpd-qa.cotiviti.com/index3.html
+serenity.verbose.steps=true
+serenity.reports.show.step.details=true
+thucycides.step.delay=1000
+serenity.timeout=5000
+serenity.logging=VERBOSE
+simplified.stack.traces = false
+serenity.console.colors = false

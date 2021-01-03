@@ -1,0 +1,40 @@
+#Author: abhishek.agarwal@cotiviti.com
+@RegressionUI 
+Feature: F2585 Presentation Manager- Filter client/payer/policy 
+#US2626 Story Description: Presentation Filter Panel - Apply selections to the available opportunities grid from Filter Drawer
+
+Background: 
+	Given User is logged into the PM application
+
+Scenario: US2626: TC-Davinci-3117 The apply button becomes enabled/disabled when user makes selection in the filter Drawer 
+	 
+	Then User should view "Presentation Manager label" 
+	Then User should view "Client drop down list to select from" 
+	Then User should view "Filter Panel image" 
+	Then User should view "Available Opportunities deck" 
+	Then User should view "Presentations container" 
+	And  User navigates to the "Filter Drawer" and clicks on the icon to the top left below sub-header 
+	Then The "Filter Drawer" opens 
+	When User has not selected any of the "medical policy/topic" 
+	Then The "Apply" and "Reset" button should be disabled 
+	When The user has selected any one or multiple "medical policy/topic" 
+	Then The "Apply" and "Reset" button should be enabled 
+	
+	
+	
+#	Below test case wordings need to be changed
+	
+#Scenario Outline: US2626: TC-Davinci 3119 The user filter selections in Filter Drawer and views changes in Medical Policy Grid
+#
+#	Then    User should view "Presentation Manager label" 
+#	Then    User should view "Client drop down list to select from" 
+#	Then    User should view "Filter Panel image"
+#	And     User navigates to the "Filter Drawer" and clicks on the icon to the top left below sub-header 
+#	Then	The "Filter Drawer" opens
+#	And 	User checks the check boxes are both checkable and uncheckable
+#	And 	User should view the "Medical Policies" are checked by default
+#	Then	User selects "Payer Shorts", "LOB", and "Claim Types" from the filter and clicks the "Apply" button
+#	Then	User should view an update on the "Medical Policies Grid" sorted in ascending and all unchecked by default
+#	And	    User clicks on one of the "Medical Policy" chevron to expand the "Topics"
+#	And 	User should view the "Topics" displayed and sorted alphabetically
+#   

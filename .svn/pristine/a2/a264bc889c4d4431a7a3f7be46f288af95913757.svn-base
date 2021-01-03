@@ -1,0 +1,38 @@
+package projects.steps.definitions;
+
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+
+import project.pageobjects.LoginPage;
+import project.utilities.GenericUtils;
+import project.utilities.SeleniumUtils;
+import project.variables.ProjectVariables;
+
+public class LoginStepDef extends SeleniumUtils {
+	LoginPage onLoginPage;
+
+	ProjectVariables projectVariables;
+
+	public boolean user_is_logged_into_the_PM_application() throws Exception {
+//		writeCookie();
+		onLoginPage.open();
+		waitForPageLoad();
+		onLoginPage.enter_User_Name(projectVariables.USER_NAME);
+		onLoginPage.enter_Password(GenericUtils.decode(projectVariables.PASSWORD));
+		onLoginPage.click_Login_button();
+		waitForPageLoad();
+		onLoginPage.click_On_PresentationManager_Link();
+		waitForPageLoad();
+		capatureCookie("CPW");
+		switchHandleToPMBrowser();
+//		capatureCookie("PM");
+
+		return true;
+
+	}
+	
+	public void user_does_Re_login_into_the_PM_application() {
+		onLoginPage.user_does_Re_login_into_the_PM_application();
+		
+	}
+
+}

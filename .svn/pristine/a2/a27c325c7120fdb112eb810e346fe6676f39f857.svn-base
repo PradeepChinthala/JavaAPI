@@ -1,0 +1,252 @@
+package project.pageobjects;
+
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import project.utilities.SeleniumUtils;
+import project.variables.ProjectVariables;
+
+public class FilterDrawer extends SeleniumUtils {
+
+	@FindBy(xpath = "//button[@class=\"cpd-filter-opener-button\"]//img[@class=\"filterimage\"]")
+	WebElementFacade ElementFilterImage;
+	@FindBy(xpath = "//span[contains(text(),\"Select Client\")]")
+	WebElementFacade ElementClientDropdown;
+	@FindBy(xpath = "(//button[contains(text(),'Reset')])[2]")
+	WebElementFacade ElementTopicResetBtn;
+	@FindBy(xpath = "(//button[contains(text(),'Apply')])[2]")
+	WebElementFacade ElementTopicApplyBtn;
+	@FindBy(xpath = "(//button[contains(text(),'Reset')])[1]")
+	WebElementFacade ElementPayerShortResetBtn;
+	@FindBy(xpath = "(//button[contains(text(),'Apply')])[1]")
+	WebElementFacade ElementPayerShortApplyBtn;
+	@FindBy(xpath = "//mat-drawer[@class='matDrawer mat-drawer ng-tns-c6-0 ng-trigger ng-trigger-transform mat-drawer-side ng-star-inserted']")
+	WebElementFacade ElementOpenedFilterDrawer;
+/*	@FindBy(xpath = "//span[@class='mat-select-value-text ng-tns-c13-2 ng-star-inserted']/span")
+	WebElementFacade ElementClientDropDownArrow;*/
+	@FindBy(xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]")
+	WebElementFacade ElementClientDropDownArrow;
+			
+	@FindBy(xpath = "//jqxcheckbox//div//..//div//b[contains(text(),'Payer Shorts')]//parent::div//..//div")
+	WebElementFacade ElementSelectAllPayer;
+	@FindBy(xpath = "/div/div[1]/span/span")
+	WebElementFacade ElementClientSelected;
+	@FindBy(xpath = "//jqxcheckbox/div/../div/b[contains(text(),'LOB')]/parent::div")
+	WebElementFacade ElementSelectAllLOB;
+	@FindBy(xpath = "//jqxcheckbox/div/../div/b[contains(text(),'Product')]/parent::div")
+	WebElementFacade ElementSelectAllProduct;
+	@FindBy(xpath = "(//div[@role='columnheader'])[2]/div/div")
+	WebElementFacade ElementSelectAllPolicy;
+	@FindBy(xpath = "//label[contains(text(),'Medical Policy: Ambulance Policy')]")
+	WebElement ElementDP;
+
+	//Objects for dynamic xpaths
+	WebElementFacade ElementClient;
+	WebElementFacade ElementSelectPayer;
+	WebElementFacade ElementSelectLOB;
+	WebElementFacade ElementSelectProduct;
+	WebElementFacade ElementSelectPolicy;
+	WebElementFacade ElementClickPolicy;
+	WebElementFacade ElementSelectTopic;
+
+	private final String partial_xPathSelectClientList_part1 = "//div[@id=\"cdk-overlay-0\"]//div//div//mat-option//span[contains(text(),\"";
+	private final String partial_xPathSelectClientList_part2 = " \")]";
+	private final String partial_xpathSelectPayerShort1 = "//div[@class='cpd-filter-drawer-container ng-star-inserted']//jqxlistbox//div//..//div//span[contains(text(),'";
+	private final String partial_xPathSelectPayerShort2 = "')]"; ////preceding-sibling::div/div/div/span";
+	private final String partialxPathPolicy_part1 = "//div[contains(text(),'";
+	private final String partialxPathPolicy_part2 = "')]"; ///parent::div/preceding-sibling::div/div/div/span";
+	private final String partialxPathPolicy_part2_click = "')]/parent::div/preceding-sibling::div/div";
+
+	private final String partialxPathTopic_part2 = "')]/parent::div/preceding-sibling::div[2]/div/div/span";
+
+	public WebElementFacade getElementClient(String arg1) {
+		ElementClient = find(
+				By.xpath(partial_xPathSelectClientList_part1 + arg1 + partial_xPathSelectClientList_part2));
+		return ElementClient;
+	}
+
+	public WebElementFacade getElementSelectPayer(String arg1) {
+		ElementSelectPayer = find(By.xpath(partial_xpathSelectPayerShort1 + arg1 + partial_xPathSelectPayerShort2));
+		return ElementSelectPayer;
+	}
+
+//	public WebElementFacade getElementCheckboxTemp(String arg1) {
+//		ElementSelectPayer = find(
+//				By.xpath(partial_xpathSelectPayerShort1 + arg1 + partial_xPathSelectPayerShort2.replace("/span", "")));
+//		return ElementSelectPayer;
+//	}
+
+	public WebElementFacade getElementSelectLOB(String arg1) {
+		ElementSelectLOB = find(By.xpath(partial_xpathSelectPayerShort1 + arg1 + partial_xPathSelectPayerShort2));
+		return ElementSelectLOB;
+	}
+
+	public WebElementFacade getElementSelectProduct(String arg1) {
+		ElementSelectProduct = find(By.xpath(partial_xpathSelectPayerShort1 + arg1 + partial_xPathSelectPayerShort2));
+		return ElementSelectProduct;
+	}
+
+	public WebElementFacade getElementSelectPolicy(String arg1) {
+		ElementSelectPolicy = find(By.xpath(partialxPathPolicy_part1 + arg1 + partialxPathPolicy_part2));
+		return ElementSelectPolicy;
+	}
+
+	public WebElementFacade getElementClickPolicy(String arg1) {
+		ElementClickPolicy = find(By.xpath(partialxPathPolicy_part1 + arg1 + partialxPathPolicy_part2_click));
+		return ElementClickPolicy;
+	}
+
+	public WebElementFacade getElementSelectTopic(String arg1) {
+		ElementSelectTopic = find(By.xpath(partialxPathPolicy_part1 + arg1 + partialxPathTopic_part2));
+		return ElementSelectTopic;
+	}
+	
+	
+//Actions
+
+	public void user_selects_given_value_from_Client_drop_down_list(String arg1) throws Throwable {
+		ElementClientDropDownArrow.click();
+		getElementClient(arg1).click();
+	}
+
+	public void user_selects_given_value_from_Payer_Shorts(String arg1) {
+		waitFor(ProjectVariables.ElementVisibleTimeout);
+		waitForVisibilityOfElement(getElementSelectPayer(arg1), ProjectVariables.ElementVisibleTimeout);
+		getElementSelectPayer(arg1).shouldBeVisible();
+		getElementSelectPayer(arg1).click();
+	}
+
+	public void user_selects_given_value_from_LOB(String arg1) {
+	getElementSelectLOB(arg1).click();
+		
+	}
+
+	public void user_selects_given_value_from_Product(String arg1) {
+		getElementSelectProduct(arg1).click();
+	}
+
+	public void user_filters_by_clicking_on_Apply_for_Payer_Shorts() {
+		ElementPayerShortApplyBtn.click();
+		waitFor(ProjectVariables.TImeout_15_Seconds);
+		waitFor(ProjectVariables.TImeout_15_Seconds);
+	}
+
+	public void user_selects_given_value_from_Medical_Policy_Topic(String arg1) {
+		WebElementFacade newElement = find(By.xpath(partialxPathPolicy_part1 + arg1 + partialxPathPolicy_part2_click));
+//		waitUntilStalenessOfElementIsRemoved(getElementClickPolicy(arg1), ProjectVariables.ElementVisibleTimeout);
+//		waitForVisibilityOfElement(getElementClickPolicy(arg1), ProjectVariables.ElementVisibleTimeout);
+//		getElementClickPolicy(arg1).shouldBeVisible();
+//		getElementClickPolicy(arg1).click();
+		newElement.click();
+	}
+
+	public void user_filters_by_clicking_on_Apply_for_Medical_Policy_Topic() {
+		waitFor(ProjectVariables.TImeout_15_Seconds);
+		ElementTopicApplyBtn.click();
+	}
+
+	public void user_unchecks_selectAllPayers() {
+		waitForVisibilityOfElement(ElementSelectAllPayer,ProjectVariables.ElementVisibleTimeout);
+		ElementSelectAllPayer.click();
+		if (ElementSelectAllPayer.getAttribute("aria-checked").toString().equals("true")) {
+			ElementSelectAllPayer.click();
+		}
+	}
+
+	public void user_unchecks_selectAllLOB() {
+		ElementSelectAllLOB.click();
+		if (ElementSelectAllLOB.getAttribute("aria-checked").toString().equals("true")) {
+			ElementSelectAllLOB.click();
+		}
+	}
+
+	public void user_unchecks_selectAllProduct() {
+		ElementSelectAllProduct.click();
+		if (ElementSelectAllProduct.getAttribute("aria-checked").toString().equals("true")) {
+			ElementSelectAllProduct.click();
+		}
+	}
+
+	public void user_unchecks_selectAllPolicies() throws Exception {
+			
+		try{		
+			   ElementSelectAllPolicy.waitUntilPresent();
+			   ElementSelectAllPolicy.click();
+		}catch(StaleElementReferenceException e)
+		{	
+			ElementSelectAllPolicy.click();
+		}catch(Exception e){
+	      	throw new Exception(e);
+			}	
+	}
+
+	public void user_should_view_given_value_selected_in_Client_drop_down_list(String arg1) {
+
+//		Boolean value =  ElementClientDropDownArrow.getText().contains(arg1);
+//		System.out.println(value);
+
+	}
+
+	public void user_should_view_given_value_selected_in_Payer_Shorts(String arg1) throws Exception {
+	
+	WebElement el =getDriver().findElement(By.xpath(partial_xpathSelectPayerShort1 + arg1 + partial_xPathSelectPayerShort2+"/parent::div/div"));
+	Boolean value = el.getAttribute("checked").toString().equals("true");
+ 	System.out.println(value);
+ 	
+ 	
+ 	/*Old Code
+ 	  WebElementFacade w ; 	 
+ 	ElementSelectPayer = getElementSelectPayer(arg1);	 
+	 w = ElementSelectPayer.findBy("/parent::div/div");		
+	Boolean value = w.getAttribute("checked").toString().equals("true");
+	*/
+	
+
+	}
+
+	public void user_should_view_given_value_selected_in_LOB(String arg1) {
+		// TODO Auto-generated method stub
+		
+	}	
+
+	public void user_should_view_given_value_selected_in_Product(String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void user_should_view_given_value_selected_in_Medical_Policy_Topic() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void user_should_view_Reset_button_for_Payer_Shorts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void user_should_view_Apply_button_for_Payer_Shorts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void user_should_view_Reset_button_for_Medical_Policy_Topics() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void user_should_view_Apply_button_for_Medical_Policy_Topics() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+		
+	
+}

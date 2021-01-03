@@ -1,0 +1,74 @@
+package project.steps;
+
+import org.junit.Assert;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.steps.ScenarioSteps;
+import projects.steps.definitions.HomePageStepDef;
+
+public class HomePageSteps extends ScenarioSteps {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Steps
+	HomePageStepDef oHomePageStepDef;
+
+	@Then("^user should view the \"([^\"]*)\"$")
+	public void user_should_view_the(String arg1) throws Throwable {
+
+	}
+
+	@Given("^User is logged into the PM application$")
+	public void user_is_logged_into_the_PM_application() throws Throwable {
+		Assert.assertTrue(oHomePageStepDef.openPMApplication());
+
+	}
+
+	@Then("^User should view \"([^\"]*)\"$")
+	public void user_should_view(String arg1) throws Throwable {
+		Assert.assertTrue(oHomePageStepDef.verifyHomePageElementExists(arg1));
+	}
+
+	@Then("^User navigates to the \"([^\"]*)\" and clicks on the icon to the top left below sub-header$")
+	public void user_navigates_to_the_and_clicks_on_the_icon_to_the_top_left_below_sub_header(String arg1)
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	@Then("^The \"([^\"]*)\" opens$")
+	public void the_opens(String arg1) throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	
+	@Then("^The \"([^\"]*)\" and \"([^\"]*)\" button should be disabled$")
+	public void the_and_button_should_be_disabled(String arg1, String arg2) throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+	@When("^User has not selected any of the \"([^\"]*)\"$")
+	public void user_has_not_selected_any_of_the(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^The user has selected any one or multiple \"([^\"]*)\"$")
+	public void the_user_has_selected_any_one_or_multiple(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^The \"([^\"]*)\" and \"([^\"]*)\" button should be enabled$")
+	public void the_and_button_should_be_enabled(String arg1, String arg2) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+	}

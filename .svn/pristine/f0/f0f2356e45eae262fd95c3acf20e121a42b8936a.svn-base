@@ -1,0 +1,45 @@
+package project.pageobjects;
+
+import org.openqa.selenium.WebElement;
+
+import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.annotations.findby.How;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import project.utilities.SeleniumUtils;
+
+public class HomePage extends SeleniumUtils {
+
+	/*
+	 * This page has home presentation manager home page header objects for
+	 * verification purpose
+	 */
+
+	@FindBy(xpath = "//span[contains(text(),\"Presentation Manager\")]")
+	WebElementFacade ElementPresentationManagerLabel;
+	@FindBy(xpath = "//img[@src=\"assets/img/cotiviti.png\"]")
+	WebElementFacade ElementCotivitiLogo;
+
+	@FindBy(xpath = "//div[@class=\"app-cpd-opp-deck\"]")
+	WebElementFacade ElementAvailableOppurDesk;
+	@FindBy(xpath = "//div[@class=\"app-cpd-pres-deck\"]")
+	WebElementFacade ElementPresentationContainer;
+
+	public boolean verify_Presentation_Manager_logo_is_visible() {
+		return ElementPresentationManagerLabel.isVisible();
+	}
+
+	public boolean verify_Cotiviti_Logo_Is_Visible() {
+		return ElementCotivitiLogo.isVisible();
+	}
+
+	public void user_logs_out_of_the_application() {
+		getDriver().close();
+	}
+
+
+
+	
+	
+}
